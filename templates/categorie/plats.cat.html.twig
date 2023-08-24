@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello
+	{{ controller_name }}!
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h1 class="text-5xl text-center mt-4 font-bold text-pink-700 mt-8 mb-8"></h1>
+	</div>
+	<hr class="mb-9 border-2 border-pink-700">
+	<div class="flex justify-center">
+		<div class="grid md:grid-cols-3 gap-14 sm:grid-cols-1 w-3/4 ">
+			{% for plat in plats %}
+				<div>
+					<div class="relative">
+						<img class="w-full h-56 imgcategories rounded-t-lg " src="{{ asset('assets/images_the_district/food/') }}{{ plat.image }}" alt="{{ plat.libelle }}">
+						<a href="#" class="absolute  top-1/2 text-black px-4 py-2  rounded-tr-lg btn commander font-bold couleur">Commander</a>
+					</div>
+
+					<div class="flex font-bold text-xl   text-black justify-center p-2 overflow-hidden shadow-lg shadow-lg shadow-black couleur">{{plat.libelle}}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1 class="text-5xl text-center mt-4 font-bold text-pink-700 mt-8">Nos Catégories les plus Populaires</h1>
+	</div>
+	<div class="flex justify-center ">
+		<div class="grid md:grid-cols-3 w-3/4  sm:grid-cols-1 ">
+			{% for cat in categories %}
+				<div class="p-10 ">
+					<div class="rounded overflow-hidden shadow-lg shadow-lg shadow-black  hover:scale-110 ease-in duration-300 ">
+						<img class="w-full h-56 imgcategorie rounded-t-lg" src="{{ asset('assets/images_the_district/category/') }}{{ cat.cat.image }} " alt="{{cat.cat.libelle}}">
+						<a href="{{path('app_categorie.id', {id:cat.cat.id})}}" class=" flex font-bold text-xl   text-black justify-center p-2 couleur" id="bout">{{cat.cat.libelle}}
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+	</div>
+
+
+	<div>
+		<h1 class="text-5xl text-center mt-4 font-bold text-pink-700">Nos Plats A la Carte</h1>
+	</div>
+	<div class="flex justify-center ">
+		<div class="grid md:grid-cols-3 w-3/4  sm:grid-cols-1">
+			{% for unplat in plat %}
+				<div class="p-10">
+					<div class="rounded overflow-hidden shadow-lg shadow-lg shadow-black hover:scale-110 ease-in duration-300">
+
+						<img class="w-full h-56 imgPlats rounded-t-lg " src="{{ asset('assets/images_the_district/food/') }}{{ unplat.plat.image }} " alt="{{unplat.plat.libelle}}">
+						<a href="" class=" flex font-bold text-xl   text-black justify-center p-2 couleur" id="bout">{{unplat.plat.libelle}}
+							{{unplat.plat.prix}}€</a>
+
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+	</div>
+{% endblock %}

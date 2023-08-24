@@ -1,0 +1,79 @@
+.imgcategories{
+
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+td{color: white;}
+
+.transition{
+    transition: all .2s ease-out;
+}
+
+.h-60{
+  height: 14rem;
+}
+
+.w-128{
+  width: 32rem;
+}
+
+.imgPlats{
+
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
+
+
+.w-200 {
+  width: 200px;
+}
+
+.h-150 {
+  height: 150px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.commander {
+  transform: translate(259%, -280%);
+}
+
+
+/* Remplacez '.h-56' par le nom de classe ou l'identifiant de l'élément SVG */
+.h-96 {
+  /* Définissez l'animation pour faire tourner à 360 degrés */
+  animation: tourner 5s linear infinite; /* Ajustez la durée (5s) selon vos besoins */
+
+  /* Définissez le point d'origine de la transformation au centre du SVG */
+  transform-origin: center center;
+}
+
+/* Keyframes pour définir l'animation de rotation */
+@keyframes tourner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bodysab{
+  position: relative;
+  top: 200px;
+  left: 800px;
+}
+
+.couleur{
+  background-color: #e0cda9;
+}
+
+.formscontact{
+  background-color: #e0cda9;
+
+}

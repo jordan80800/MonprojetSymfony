@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello
+	{{ controller_name }}!
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h1 class="text-5xl text-center mt-4 font-bold text-pink-700 mt-8 mb-8">Nos Catégories</h1>
+	</div>
+	<div class="flex justify-center">
+		<div class="flex  overflow-hidden  shadow-lg shadow-black">
+			<div class="grid md:grid-cols-3 gap-14 sm:grid-cols-1 ">
+				{% for categorie in categories %}
+					<div>
+						<img class="w-full h-56 imgcategories rounded-t-lg " src="{{ asset('assets/images_the_district/category/') }}{{ categorie.image }}" alt="{{ categorie.libelle }}">
+						<a href="{{path('app_categorie.id', {id:categorie.id})}}" class=" flex font-bold text-xl   text-black justify-center p-2 couleur" id="bout">{{categorie.libelle}}
+						</a>
+
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
