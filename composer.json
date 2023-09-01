@@ -38,7 +38,8 @@
         "symfony/validator": "6.2.*",
         "symfony/web-link": "6.2.*",
         "symfony/yaml": "6.2.*",
-        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/cssinliner-extra": "^3.7",
+        "twig/extra-bundle": "^3.7",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
@@ -78,6 +79,12 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "fixtures": [
+            "php bin/console d:d:d --force --if-exists",
+            "php bin/console d:d:c ",
+            "php bin/console d:s:u --force ",
+            "php bin/console d:f:l --append"
         ]
     },
     "conflict": {

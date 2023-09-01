@@ -31,7 +31,6 @@ class CategorieRepository extends ServiceEntityRepository
             ->andWhere('p.active = 1')
             ->groupBy('c.id')
             ->orderBy('quantite_commande', 'DESC')
-            ->orderBy('c.libelle')
             ->setMaxResults(6)
             ->getQuery()
             ->getResult();

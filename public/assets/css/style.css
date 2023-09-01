@@ -39,9 +39,6 @@ td{color: white;}
   cursor: pointer;
 }
 
-.commander {
-  transform: translate(259%, -280%);
-}
 
 
 /* Remplacez '.h-56' par le nom de classe ou l'identifiant de l'élément SVG */
@@ -76,4 +73,7 @@ td{color: white;}
 .formscontact{
   background-color: #e0cda9;
 
+}
+.couleurtexte{
+  color:#e0cda9 ;
 }
