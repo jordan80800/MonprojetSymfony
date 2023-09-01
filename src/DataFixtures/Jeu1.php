@@ -455,35 +455,19 @@ class Jeu1 extends Fixture
         $utilisateur1 = new Utilisateur();
         $utilisateur1->setEmail("joel80@gmail.fr");
         $utilisateur1->setPassword("pas1");
-        $utilisateur1->setNom("jo");
-        $utilisateur1->setPrenom("el");
-        $utilisateur1->setTelephone("1111111111");
-        $utilisateur1->setAdresse("76 rue");
-        $utilisateur1->setCp("80000");
-        $utilisateur1->setVille("Amiens");
-        $utilisateur1->setRoles("user");
+     
+        $utilisateur1->setRoles(["ROLE_USER"]);
 
         $utilisateur2 = new Utilisateur();
         $utilisateur2->setEmail("joel2@gmail.fr");
         $utilisateur2->setPassword("pas2");
-        $utilisateur2->setNom("jo");
-        $utilisateur2->setPrenom("ma");
-        $utilisateur2->setTelephone("2222222222");
-        $utilisateur2->setAdresse("77 rue");
-        $utilisateur2->setCp("80000");
-        $utilisateur2->setVille("Amiens");
-        $utilisateur2->setRoles("user");
+       
+        $utilisateur2->setRoles(["ROLE_CLIENT"]);
 
         $utilisateur3 = new Utilisateur();
         $utilisateur3->setEmail("joel3@gmail.fr");
         $utilisateur3->setPassword("pas3");
-        $utilisateur3->setNom("jo");
-        $utilisateur3->setPrenom("ma");
-        $utilisateur3->setTelephone("3333333333");
-        $utilisateur3->setAdresse("77 rue de la rue de ma rue dans ta rue ");
-        $utilisateur3->setCp("80000");
-        $utilisateur3->setVille("Amiens");
-        $utilisateur3->setRoles("Admin");
+        $utilisateur3->setRoles(["ROLE_ADMIN"]);
 
 
         $commande1 = new Commande();

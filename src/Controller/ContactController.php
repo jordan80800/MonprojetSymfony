@@ -2,52 +2,48 @@
 
 namespace App\Controller;
 
+namespace App\Controller;
+
 use App\Entity\Contact;
-use App\Form\DemoFormType;
 use App\Form\ContactFormType;
+use App\Service\MailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Author;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+
+
 
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, MailService $mailService): Response
     {
         $form = $this->createForm(ContactFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //on crée une instance de Contact
             $message = new Contact();
-            // Traitement des données du formulaire
-            $data = $form->getData();
-            //on stocke les données récupérées dans la variable $message
+
+            $data = $form ->getData();
             $message = $data;
 
-            $entityManager->persist($message);
-            $entityManager->flush();
-
-            // Redirection vers accueil
-            return $this->redirectToRoute('app_contact');
+$mailService->sendMail(
+            $data->getEmail(), 
+            $data->getObjet(),
+             $data->getMessage() );    
+             $entityManager->persist($message);
+             $entityManager->flush();
         }
 
-        return $this->render('contact/index.html.twig', [
-              'form' => $form
-        ]);
-    }
-
-
-
-
-
-
-
-
     
-}
+
+            return $this->render('contact/index.html.twig', [
+                'form' => $form->createView(),
+            ]);
+
+        }
+
+    }
