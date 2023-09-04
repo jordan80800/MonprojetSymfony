@@ -6,7 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Commande;
 use App\Entity\Detail;
 use App\Entity\Plat;
-use App\Entity\Utilisateur;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -452,43 +452,62 @@ class Jeu1 extends Fixture
         $plat7_6->setIdCategorie($categorie7);
         // $categorie7->addPlat($plat7_6);
 
-        $utilisateur1 = new Utilisateur();
+        $utilisateur1 = new User();
         $utilisateur1->setEmail("joel80@gmail.fr");
-        $utilisateur1->setPassword("pas1");
-     
         $utilisateur1->setRoles(["ROLE_USER"]);
+        $utilisateur1->setPassword("pas1");
+        $utilisateur1->setNom("joel");
+        $utilisateur1->setPrenom("poel");
+        $utilisateur1->setTelephone("0610253748");
+        $utilisateur1->setAdresse("rue de amiens");
+        $utilisateur1->setCp("80");
+        $utilisateur1->setVille("Amiens");
 
-        $utilisateur2 = new Utilisateur();
-        $utilisateur2->setEmail("joel2@gmail.fr");
+
+
+     
+
+        $utilisateur2 = new User();
+        $utilisateur2->setEmail("joel80@gmail.com");
+        $utilisateur2->setRoles(["ROLE_USER"]);
         $utilisateur2->setPassword("pas2");
+        $utilisateur2->setNom("noel");
+        $utilisateur2->setPrenom("foel");
+        $utilisateur2->setTelephone("0799885477");
+        $utilisateur2->setAdresse("rue de beauvais");
+        $utilisateur2->setCp("60");
+        $utilisateur2->setVille("beauvais");
        
-        $utilisateur2->setRoles(["ROLE_CLIENT"]);
-
-        $utilisateur3 = new Utilisateur();
-        $utilisateur3->setEmail("joel3@gmail.fr");
+        $utilisateur3 = new User();
+        $utilisateur3->setEmail("joel80@gmail.de");
+        $utilisateur3->setRoles(["ROLE_USER"]);
         $utilisateur3->setPassword("pas3");
-        $utilisateur3->setRoles(["ROLE_ADMIN"]);
-
+        $utilisateur3->setNom("goeland");
+        $utilisateur3->setPrenom("glacial");
+        $utilisateur3->setTelephone("0977885544");
+        $utilisateur3->setAdresse("rue de longueau");
+        $utilisateur3->setCp("80");
+        $utilisateur3->setVille("longeau");
 
         $commande1 = new Commande();
         $commande1->setDateCommande(new \Datetime());
         $commande1->setTotal("0");
         $commande1->setEtat("1");
-        $commande1->setUtilisateur($utilisateur1);
+        $commande1->setUser($utilisateur1);
 
 
         $commande2 = new Commande();
         $commande2->setDateCommande(new \Datetime());
         $commande2->setTotal("1");
         $commande2->setEtat("0");
-        $commande2->setUtilisateur($utilisateur2);
+        $commande2->setUser($utilisateur2);
 
 
         $commande3 = new Commande();
         $commande3->setDateCommande(new \Datetime());
         $commande3->setTotal("2");
         $commande3->setEtat("2");
-        $commande3->setUtilisateur($utilisateur2);
+        $commande3->setUser($utilisateur2);
 
 
 

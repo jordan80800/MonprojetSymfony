@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	<div class="w-full flex justify-center mt-28 text-cente">
+		{{ form_start(registrationForm) }}
+		<div class="backdrop-blur-md formscontact rounded-xl shadow-xl">
+            <div class="flex justify-center text-7xl	"><h1>S'inscrire</h1></div>
+
+			<div class="mb-2 pt-11 pr-11 pl-11 pb-11">
+				<div class="grid grid-cols-2 gap-6">
+					{{ form_row(registrationForm.email ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl mr-11' }}) }}
+					{{ form_row(registrationForm.plainPassword, {
+                        label: 'Password',
+                        attr: {
+                            'class': 'border border-slate-800 text-black h-10 w-full rounded-xl'
+                        }
+                    }) }}
+				</div>
+				<div class="grid grid-cols-2 gap-6">
+					{{ form_row(registrationForm.nom ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl', 'style': 'margin-right: 10px;' }}) }}
+					{{ form_row(registrationForm.prenom ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl' }}) }}
+				</div>
+				<div class="grid grid-cols-2 gap-6">
+					{{ form_row(registrationForm.ville ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl', 'style': 'margin-right: 10px;' }}) }}
+					{{ form_row(registrationForm.telephone ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl' }}) }}
+				</div>
+				<div class="grid grid-cols-2 gap-6">
+					{{ form_row(registrationForm.adresse ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl', 'style': 'margin-right: 10px;' }}) }}
+					{{ form_row(registrationForm.cp ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl' }}) }}
+				</div>
+				<div class="">
+					{{ form_row(registrationForm.save ,{'attr':{ 'class': 'border border-slate-800 text-black h-10 w-full rounded-xl mt-11 bg-white hover:bg-sky-500' }}) }}
+				</div>
+			</div>
+		</div>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}
