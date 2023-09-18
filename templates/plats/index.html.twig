@@ -17,8 +17,13 @@
 			{% for plat in categorie.plats %}
 				<div>
 					<img class="w-full h-56 imgcategories rounded-t-lg " src="{{ asset('assets/images_the_district/food/') }}{{ plat.image }}" alt="{{ plat.libelle }}">
-					<div class="flex font-bold text-xl   text-black justify-center p-2 overflow-hidden shadow-lg shadow-lg shadow-black couleur">{{plat.libelle}} {{plat.prix}}€  </div>
+					<div class="flex font-bold text-xl   text-black justify-center p-2 overflow-hidden shadow-lg shadow-lg shadow-black couleur">
+						<a href="/add/{{plat.id}}" > {{plat.libelle}} {{plat.prix}}€</a>
+
+					</div>
+					
 				</div>
+				
 			{% endfor %}
 		</div>
 		</div>

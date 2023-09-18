@@ -28,5 +28,23 @@ class MailService {
 
         $this->mailer->send($email);
     }
+
+
+    public function sendMailCommande($userEmail, $subject, $message) {
+        $email = (new TemplatedEmail())
+            ->from('districtexample@80.com')
+            ->to($userEmail)
+            ->subject($subject)
+            ->htmlTemplate('emails/commande_email.html.twig')
+            ->context([
+                'mail' => $userEmail,
+                'subject' => $subject,
+                'message' => $message,
+                'expiration_date' => new \DateTime('+7 days'),
+                'username' => 'The District',
+            ]);
+
+        $this->mailer->send($email);
+    }
 }
 

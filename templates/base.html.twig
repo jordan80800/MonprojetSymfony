@@ -15,10 +15,10 @@
 		<nav class="bg-white border-gray-200  ">
 
 
-			<div class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto p-4 couleur ">
+			<div class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto  couleur ">
 				<div class="flex items-center">
 					<img src="{{ asset('/assets/images_the_district/the_district_brand/Capture_d_écran_du_2023-07-26_11-31-38-removebg-preview.png') }}" class="h-20 " alt="district Logo" cla/>
-					<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-white">District</span>
+					<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-white  block md:hidden lg:block">District</span>
 				</a>
 			</div>
 			<div class="flex md:order-2">
@@ -27,23 +27,45 @@
 				<div class="relative hidden md:block ">
 
 
-					<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
-					{% if app.user %}
-						<a href="{{ path('app_logout') }}" class="btn rounded-full bg-white hover:bg-black hover:text-white p-3">Déconnexion</a>
-					{% else %}
-						<a href="#" class="btn rounded-full bg-white hover:bg-black hover:text-white p-3">Connexion</a>
-					{% endif %}
+					<div class=" flex">
+						<div class="flex flex-col pr-11">
+							<svg width="50px" height="50px" class="svgposition" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+								<g id="SVGRepo_iconCarrier">
+									<path d="M20 10L18.5145 17.4276C18.3312 18.3439 18.2396 18.8021 18.0004 19.1448C17.7894 19.447 17.499 19.685 17.1613 19.8326C16.7783 20 16.3111 20 15.3766 20H8.62337C7.6889 20 7.22166 20 6.83869 19.8326C6.50097 19.685 6.2106 19.447 5.99964 19.1448C5.76041 18.8021 5.66878 18.3439 5.48551 17.4276L4 10M3 10H21M8 13V13.01M16 13V13.01M6 10L9 4M18 10L15 4" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</g>
+							</svg>
+							<a href=" {{ path('panier') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0 dark:text-white  dark:border-gray-700  text-2xl md:text-black hover:text-white textposition font-medium">Panier</a>
+						</div>
+						<div class="flex items-center pr-4">
+							{% if app.user %}
+								<span >
+									<a href="{{ path('app_logout') }}" class="btn rounded-full bg-white hover:bg-black hover:text-white p-3">Déconnexion</a>
+								</span>
+							{% else %}
+								<span class="pr-4">
+									<a href="{{path('app_register')}}" class="btn rounded-full bg-white hover:bg-black hover:text-white p-3">S'inscrire</a>
+								</span>
+								<span>
+									<a href="{{path('app_login')}}" class="btn rounded-full bg-white hover:bg-black hover:text-white p-3">Connexion</a>
+								</span>
+							{% endif %}
+						</div>
+					</div>
+
 				</div>
 				<button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
 					<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 17 14">
 						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
 					</svg>
 				</button>
+
 			</div>
 			<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
 				<div class="relative mt-3 md:hidden">
 					<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-						<svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 20 20">
+						<svg class="w-4 h-4 text-gray-500 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 20 20">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
 						</svg>
 					</div>
@@ -51,7 +73,7 @@
 				</div>
 				<ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  couleur">
 					<li class="flex justify-center flex-col">
-						<svg viewbox="0 0 12 12" enable-background="new 0 0 12 12" id="home" class="h-12" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+						<svg viewbox="0 0 12 12" enable-background="new 0 0 12 12" id="home" class="h-12 hidden md:block pt-4" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
@@ -62,10 +84,10 @@
 							</g>
 						</svg>
 
-						<a href="{{ path('app_accueil') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0  dark:text-white   dark:border-gray-700  text-2xl md:text-black hover:text-black">Accueil</a>
+						<a href="{{ path('app_accueil') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0  dark:text-white   dark:border-gray-700  text-2xl md:text-black hover:text-white">Accueil</a>
 					</li>
 					<li class="flex justify-center flex-col">
-						<svg version="1.1" class="h-12 svg  " id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 512 512" xml:space="preserve" fill="#000000">
+						<svg version="1.1" class="h-12 svg hidden md:block pt-4 " id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 512 512" xml:space="preserve" fill="#000000">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
@@ -75,10 +97,10 @@
 								</g>
 							</g>
 						</svg>
-						<a href="{{ path('app_categorie') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0  dark:text-white   dark:border-gray-700  text-2xl md:text-black hover:text-black">Catégories</a>
+						<a href="{{ path('app_categorie') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0  dark:text-white   dark:border-gray-700  text-2xl md:text-black hover:text-white">Catégories</a>
 					</li>
 					<li class="flex justify-center flex-col">
-						<svg class="h-12" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 512 512" xml:space="preserve" fill="#000000">
+						<svg class="h-12 hidden md:block pt-4" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 512 512" xml:space="preserve" fill="#000000">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
@@ -92,10 +114,10 @@
 								</g>
 							</g>
 						</svg>
-						<a href="{{ path('app_plats') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0 dark:text-white    dark:border-gray-700  text-2xl md:text-black hover:text-black">Plats</a>
+						<a href="{{ path('app_plats') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0 dark:text-white    dark:border-gray-700  text-2xl md:text-black hover:text-white">Plats</a>
 					</li>
 					<li class="flex justify-center flex-col">
-						<svg fill="#000000" class="h-12" version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<svg fill="#000000" class="h-12 hidden md:block pt-4 " version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
@@ -104,18 +126,13 @@
 								</g>
 							</g>
 						</svg>
-						<a href="{{ path('app_contact') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0 dark:text-white    dark:border-gray-700  text-2xl md:text-black hover:text-black">Contact</a>
+						<a href="{{ path('app_contact') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded   md:p-0 dark:text-white    dark:border-gray-700  text-2xl md:text-black hover:text-white">Contact</a>
 
 					</li>
-				</ul>
-			</div>
 
-		</nav>
+				</li>
+			</ul>
 
-		{% block body %}{##}{% endblock %}
-		<script src="{{ asset('assets/script/script.js') }}" defer></script>
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		</div>
 	</body>
-</html>
+</html></nav>{% block body %}{##}{% endblock %}<script src="{{ asset('assets/script/script.js') }}" defer></script><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></body></html>

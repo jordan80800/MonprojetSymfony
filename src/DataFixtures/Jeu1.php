@@ -494,6 +494,12 @@ class Jeu1 extends Fixture
         $commande1->setTotal("0");
         $commande1->setEtat("1");
         $commande1->setUser($utilisateur1);
+        $commande1->setAdresseDeFacturation('lyon');
+        $commande1->setMoyenDePayement('carte');
+        $commande1->setAdresseDeLivraison('Afpa');
+
+
+
 
 
         $commande2 = new Commande();
@@ -501,6 +507,11 @@ class Jeu1 extends Fixture
         $commande2->setTotal("1");
         $commande2->setEtat("0");
         $commande2->setUser($utilisateur2);
+        $commande2->setAdresseDeFacturation('Monaco');
+        $commande2->setMoyenDePayement('chéque');
+        $commande2->setAdresseDeLivraison('Promeo');
+
+
 
 
         $commande3 = new Commande();
@@ -508,6 +519,10 @@ class Jeu1 extends Fixture
         $commande3->setTotal("2");
         $commande3->setEtat("2");
         $commande3->setUser($utilisateur2);
+        $commande3->setAdresseDeFacturation('Amiens');
+        $commande3->setMoyenDePayement('virement');
+        $commande3->setAdresseDeLivraison('Centre');
+
 
 
 

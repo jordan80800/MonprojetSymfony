@@ -1,23 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in!
+{% endblock %}
 
 {% block body %}
-<form method="post">
-   
-  
+	<form method="post">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+		<div class="w-full flex justify-center mt-28 text-cente">
+			<div class="backdrop-blur-md formscontact rounded-xl shadow-xl">
+<div class="flex justify-center">
+    <h1 class="text-4xl">Connexion</h1>
+</div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                <div class="grid grid-col-1 pt-11 pl-4 pr-4">
+				<label for="inputEmail" >Email</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control rounded-full" autocomplete="email" required autofocus>
+                </div>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-Se Connecter    </button>
-</form>
+                <div class="grid grid-col-1 p-4">
+
+				<label for="inputPassword">Password</label>
+
+				<input type="password" name="password" id="inputPassword" class="form-control rounded-full" autocomplete="current-password" required>
+                </div>
+
+                <div class="grid grid-col-1 ">
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<button class="btn btn-lg btn-primary pb-4" type="submit">
+					Se Connecter
+				</button>
+                </div>
+
+			</form>
+		</div>
+	</div>
 {% endblock %}

@@ -32,6 +32,15 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $AdresseDeFacturation = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $MoyenDePayement = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $AdresseDeLivraison = null;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
@@ -116,6 +125,42 @@ class Commande
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getAdresseDeFacturation(): ?string
+    {
+        return $this->AdresseDeFacturation;
+    }
+
+    public function setAdresseDeFacturation(string $AdresseDeFacturation): static
+    {
+        $this->AdresseDeFacturation = $AdresseDeFacturation;
+
+        return $this;
+    }
+
+    public function getMoyenDePayement(): ?string
+    {
+        return $this->MoyenDePayement;
+    }
+
+    public function setMoyenDePayement(string $MoyenDePayement): static
+    {
+        $this->MoyenDePayement = $MoyenDePayement;
+
+        return $this;
+    }
+
+    public function getAdresseDeLivraison(): ?string
+    {
+        return $this->AdresseDeLivraison;
+    }
+
+    public function setAdresseDeLivraison(string $AdresseDeLivraison): static
+    {
+        $this->AdresseDeLivraison = $AdresseDeLivraison;
 
         return $this;
     }

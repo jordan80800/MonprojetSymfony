@@ -27,23 +27,22 @@ class ContactController extends AbstractController
 
             $message = new Contact();
 
-            $data = $form ->getData();
+            $data = $form->getData();
             $message = $data;
 
-$mailService->sendMail(
-            $data->getEmail(), 
-            $data->getObjet(),
-             $data->getMessage() );    
-             $entityManager->persist($message);
-             $entityManager->flush();
+            $mailService->sendMail(
+                $data->getEmail(),
+                $data->getObjet(),
+                $data->getMessage()
+            );
+            $entityManager->persist($message);
+            $entityManager->flush();
         }
 
-    
 
-            return $this->render('contact/index.html.twig', [
-                'form' => $form->createView(),
-            ]);
 
-        }
-
+        return $this->render('contact/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
+}

@@ -8,8 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\CategorieRepository;
 use App\Repository\PlatRepository;
 
-class CategorieController extends AbstractController
+class InventoryController extends AbstractController
 {
+
     private $categories;
     private $plats;
 
@@ -36,6 +37,21 @@ class CategorieController extends AbstractController
         return $this->render('categorie/plats.cat.html.twig', [
             'controller_name' => 'CategorieController',
             'plats' => $plats,
+        ]);
+    }
+
+
+   
+
+    #[Route('/plats', name: 'app_plats')]
+    public function indexplats(): Response
+    {
+
+        $categories = $this->categories->GetPlatsParCategorie();
+        return $this->render('plats/index.html.twig', [
+            'controller_name' => 'PlatsController',
+            'categories' => $categories,
+
         ]);
     }
 }
