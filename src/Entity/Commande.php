@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
 {
+    const ETAT_ENREGISTREE_PAYEE = 0;
+    const ETAT_EN_PREPARATION = 1;
+    const ETAT_EN_COURS_LIVRAISON = 2;
+    const ETAT_LIVREE = 3;
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -68,7 +74,7 @@ class Commande
         return $this->total;
     }
 
-    public function setTotal(string $total): static
+    public function setTotal(?string $total): static
     {
         $this->total = $total;
 
@@ -134,7 +140,7 @@ class Commande
         return $this->AdresseDeFacturation;
     }
 
-    public function setAdresseDeFacturation(string $AdresseDeFacturation): static
+    public function setAdresseDeFacturation(?string $AdresseDeFacturation): static
     {
         $this->AdresseDeFacturation = $AdresseDeFacturation;
 
@@ -146,7 +152,7 @@ class Commande
         return $this->MoyenDePayement;
     }
 
-    public function setMoyenDePayement(string $MoyenDePayement): static
+    public function setMoyenDePayement(?string $MoyenDePayement): static
     {
         $this->MoyenDePayement = $MoyenDePayement;
 
@@ -158,7 +164,7 @@ class Commande
         return $this->AdresseDeLivraison;
     }
 
-    public function setAdresseDeLivraison(string $AdresseDeLivraison): static
+    public function setAdresseDeLivraison(?string $AdresseDeLivraison): static
     {
         $this->AdresseDeLivraison = $AdresseDeLivraison;
 

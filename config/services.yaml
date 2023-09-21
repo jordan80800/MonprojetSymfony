@@ -24,3 +24,11 @@ services:
             $mailer: '@Symfony\Component\Mailer\MailerInterface'
         tags:
             - { name: doctrine.event_subscriber }
+    App\EventSubscriber\CommandeSubscriber:
+        arguments:
+            $mailer: '@Symfony\Component\Mailer\MailerInterface'
+        tags:
+            - { name: doctrine.event_subscriber }
+            
+
+

@@ -3,49 +3,45 @@
 namespace App\Controller;
 
 use App\Entity\Plat;
+use App\Service\PanierService;
 use App\Repository\PlatRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class PanierController extends AbstractController
 {
     #[Route('/add/{plat}', name: 'panier_add')]
-    public function add(SessionInterface $session, Plat $plat, Request $request): Response
+    public function index(PanierService $panier, SessionInterface $session, Plat $plat): RedirectResponse
     {
-        $panier = $session->get('panier', []);
-        if (isset($panier[$plat->getId()])) {
-            $panier[$plat->getId()]++;
-        } else {
-            $panier[$plat->getId()] = 1;
-        }
-        $session->set("panier", $panier);
 
-        return $this->redirect("/panier");
+        $panier->add($plat, $session);
+
+        return $this->redirectToRoute('panier');
     }
 
 
 
 
 
+
+
+
+
+
+
     #[Route('/panier', name: 'panier')]
-
-
-    public function panier(SessionInterface $session, PlatRepository $repo): Response
+    public function indexTwo(PlatRepository $repo, SessionInterface $session ,PanierService $ps): Response
     {
+        $nouveau=$ps->panier($session, $repo);
         $panier = $session->get("panier", []);
-        $nouveau = [];
 
-        foreach ($panier as $key => $value) {
-            $p = $repo->find($key);
-            $nouveau[] = $p;
-            // dd($nouveau);
-        }
+
         return $this->render('panier/index.html.twig', [
             'nouveau' => $nouveau,
-            'quantite' => $panier,
+            'quantite' => $panier
         ]);
     }
 }
