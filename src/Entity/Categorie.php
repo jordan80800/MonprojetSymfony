@@ -7,27 +7,38 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: CategorieRepository::class)]
-#[ApiResource]
+
+#[ORM\Entity(repositoryClass: CategorieRepositoryRepository::class)]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+)]
 
 class Categorie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
+    
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read'])]
     private ?string $libelle = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read'])]
+
     private ?string $image = null;
 
     #[ORM\OneToMany(mappedBy: 'id_categorie', targetEntity: Plat::class)]
     private Collection $plats;
 
     #[ORM\Column]
+    #[Groups(['read', 'write'])]
+
     private ?bool $active = null;
 
     public function __construct()
