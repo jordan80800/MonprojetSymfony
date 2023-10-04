@@ -3,7 +3,7 @@
 {% block title %}Hello CommandeController!{% endblock %}
 
 {% block body %}
-
+<div class="pb-[552px]">
 {{form_start(form)}}
 {{ form_row(form.MoyenDePayement ,{'attr':{ 'class': ' border border-slate-800 text-black h-16 w-full rounded-full' }}) }}
 {{ form_row(form.AdresseDeLivraison ,{'attr':{ 'class': ' border border-slate-800 text-black h-16 w-full rounded-xl' }}) }}
@@ -12,5 +12,7 @@
 
 
 {{ form_end(form) }}
+
+</div>
 
 {% endblock %}

@@ -15,7 +15,7 @@
 <div class="flex justify-center">
 			<div class="grid md:grid-cols-3 gap-14 sm:grid-cols-1 w-3/4">
 			{% for plat in categorie.plats %}
-				<div>
+				<div class="pb-10">
 					<img class="w-full h-56 imgcategories rounded-t-lg " src="{{ asset('assets/images_the_district/food/') }}{{ plat.image }}" alt="{{ plat.libelle }}">
 					<div class="flex font-bold text-xl   text-black justify-center p-2 overflow-hidden shadow-lg shadow-lg shadow-black couleur">
 						<a href="/add/{{plat.id}}" > {{plat.libelle}} {{plat.prix}}€</a>

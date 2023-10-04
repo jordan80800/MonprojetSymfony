@@ -66,3 +66,11 @@ td{color: white;}
 .textposition{position: relative;
   bottom: 1px;
 }
+
+
+.foot{
+  background-color: #e0cda9;
+  font-size: 29px;
+  display: flex;
+  justify-content: center;
+}

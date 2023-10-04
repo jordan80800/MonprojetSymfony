@@ -12,9 +12,9 @@
 		<div class="flex  overflow-hidden  ">
 			<div class="grid md:grid-cols-3 gap-14 sm:grid-cols-1 ">
 				{% for categorie in categories %}
-					<div>
+					<div class="pb-10">
 						<img class="w-full h-56 imgcategories rounded-t-lg " src="{{ asset('assets/images_the_district/category/') }}{{ categorie.image }}" alt="{{ categorie.libelle }}">
-						<a href="{{path('app_categorie.id', {id:categorie.id})}}" class=" flex font-bold text-xl   text-black justify-center p-2 couleur" id="bout">{{categorie.libelle}}
+						<a href="{{path('app_categorie.id', {id:categorie.id})}}" class=" flex font-bold text-xl    text-black justify-center p-2 couleur" id="bout">{{categorie.libelle}}
 						</a>
 
 					</div>
